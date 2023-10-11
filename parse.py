@@ -247,8 +247,10 @@ def create_inst_dict(file_filter, include_pseudo=False, include_pseudo_ops=[]):
                       err_msg += f'added from {item["extension"]} in same base extensions'
                       logging.error(err_msg)
                       raise SystemExit(1)
-            # update the final dict with the instruction
-            instr_dict[name] = single_dict
+
+            if name not in instr_dict:
+                # update the final dict with the instruction
+                instr_dict[name] = single_dict
 
     # second pass if for pseudo instructions
     logging.debug('Collecting pseudo instructions now')
@@ -382,10 +384,10 @@ def create_inst_dict(file_filter, include_pseudo=False, include_pseudo_ops=[]):
                     err_msg += f'added from {var} but each have different encodings for the same instruction'
                     logging.error(err_msg)
                     raise SystemExit(1)
-                instr_dict[name]['extension'].append(single_dict['extension'])
-
-            # update the final dict with the instruction
-            instr_dict[name] = single_dict
+                instr_dict[name]['extension'].extend(single_dict['extension'])
+            else:
+                # update the final dict with the instruction
+                instr_dict[name] = single_dict
     return instr_dict
 
 def make_priv_latex_table():
@@ -733,6 +735,12 @@ def make_ext_latex_table(type_list, dataset, latex_file, ilen, caption):
     # dump the contents and return
     latex_file.write(header+content+endtable)
 
+def instr_dict_2_extensions(instr_dict):
+    extensions = []
+    for item in instr_dict.values():
+        if item['extension'][0] not in extensions:
+            extensions.append(item['extension'][0])
+    return extensions
 
 def make_chisel(instr_dict, spinal_hdl=False):
 
@@ -742,8 +750,28 @@ def make_chisel(instr_dict, spinal_hdl=False):
     for i in instr_dict:
         if spinal_hdl:
             chisel_names += f'  def {i.upper().replace(".","_"):<18s} = M"b{instr_dict[i]["encoding"].replace("-","-")}"\n'
-        else:
-            chisel_names += f'  def {i.upper().replace(".","_"):<18s} = BitPat("b{instr_dict[i]["encoding"].replace("-","?")}")\n'
+        # else:
+        #     chisel_names += f'  def {i.upper().replace(".","_"):<18s} = BitPat("b{instr_dict[i]["encoding"].replace("-","?")}")\n'
+    if not spinal_hdl:
+        extensions = instr_dict_2_extensions(instr_dict)
+        for e in extensions:
+            e_instrs = filter(lambda i: instr_dict[i]['extension'][0] == e, instr_dict)
+            if "rv128_" in e:
+                e_format = e.replace("rv128_", "").upper() + "128"
+            elif "rv64_" in e:
+                e_format = e.replace("rv64_", "").upper() + "64"
+            elif "rv32_" in e:
+                e_format = e.replace("rv32_", "").upper() + "32"
+            elif "rv_" in e:
+                e_format = e.replace("rv_", "").upper()
+            else:
+                e_format = e.upper
+            chisel_names += f'  val {e_format+"Type"} = Map(\n'
+            for instr in e_instrs:
+                tmp_instr_name = '"'+instr.upper().replace(".","_")+'"'
+                chisel_names += f'   {tmp_instr_name:<18s} -> BitPat("b{instr_dict[instr]["encoding"].replace("-","?")}"),\n'
+            chisel_names += f'  )\n'
+
     for num, name in causes:
         cause_names_str += f'  val {name.lower().replace(" ","_")} = {hex(num)}\n'
     cause_names_str += '''  val all = {
@@ -956,10 +984,7 @@ if __name__ == "__main__":
 
     if '-c' in sys.argv[1:]:
         instr_dict_c = create_inst_dict(extensions, False, 
-                include_pseudo_ops=['pause', 'prefetch_r', 'prefetch_w', 'prefetch_i',
-                                    'slli_rv32', 'srli_rv32', 'srai_rv32',
-                                    'slli_rv128', 'srli_rv128', 'srai_rv128',
-                                    ])
+                                        include_pseudo_ops=emitted_pseudo_ops)
         instr_dict_c = collections.OrderedDict(sorted(instr_dict_c.items()))
         make_c(instr_dict_c)
         logging.info('encoding.out.h generated successfully')
