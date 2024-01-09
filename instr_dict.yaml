@@ -245,12 +245,36 @@ aes64ks2:
   - rd
   - rs1
   - rs2
+amoadd_b:
+  encoding: 00000------------000-----0101111
+  extension:
+  - rv_zabha
+  mask: '0xf800707f'
+  match: '0x2f'
+  variable_fields:
+  - rd
+  - rs1
+  - rs2
+  - aq
+  - rl
 amoadd_d:
   encoding: 00000------------011-----0101111
   extension:
   - rv64_a
   mask: '0xf800707f'
   match: '0x302f'
+  variable_fields:
+  - rd
+  - rs1
+  - rs2
+  - aq
+  - rl
+amoadd_h:
+  encoding: 00000------------001-----0101111
+  extension:
+  - rv_zabha
+  mask: '0xf800707f'
+  match: '0x102f'
   variable_fields:
   - rd
   - rs1
@@ -269,12 +293,36 @@ amoadd_w:
   - rs2
   - aq
   - rl
+amoand_b:
+  encoding: 01100------------000-----0101111
+  extension:
+  - rv_zabha
+  mask: '0xf800707f'
+  match: '0x6000002f'
+  variable_fields:
+  - rd
+  - rs1
+  - rs2
+  - aq
+  - rl
 amoand_d:
   encoding: 01100------------011-----0101111
   extension:
   - rv64_a
   mask: '0xf800707f'
   match: '0x6000302f'
+  variable_fields:
+  - rd
+  - rs1
+  - rs2
+  - aq
+  - rl
+amoand_h:
+  encoding: 01100------------001-----0101111
+  extension:
+  - rv_zabha
+  mask: '0xf800707f'
+  match: '0x6000102f'
   variable_fields:
   - rd
   - rs1
@@ -293,12 +341,36 @@ amoand_w:
   - rs2
   - aq
   - rl
+amocas_b:
+  encoding: 00101------------000-----0101111
+  extension:
+  - rv_zabha
+  mask: '0xf800707f'
+  match: '0x2800002f'
+  variable_fields:
+  - rd
+  - rs1
+  - rs2
+  - aq
+  - rl
 amocas_d:
   encoding: 00101------------011-----0101111
   extension:
   - rv_zacas
   mask: '0xf800707f'
   match: '0x2800302f'
+  variable_fields:
+  - rd
+  - rs1
+  - rs2
+  - aq
+  - rl
+amocas_h:
+  encoding: 00101------------001-----0101111
+  extension:
+  - rv_zabha
+  mask: '0xf800707f'
+  match: '0x2800102f'
   variable_fields:
   - rd
   - rs1
@@ -329,12 +401,36 @@ amocas_w:
   - rs2
   - aq
   - rl
+amomax_b:
+  encoding: 10100------------000-----0101111
+  extension:
+  - rv_zabha
+  mask: '0xf800707f'
+  match: '0xa000002f'
+  variable_fields:
+  - rd
+  - rs1
+  - rs2
+  - aq
+  - rl
 amomax_d:
   encoding: 10100------------011-----0101111
   extension:
   - rv64_a
   mask: '0xf800707f'
   match: '0xa000302f'
+  variable_fields:
+  - rd
+  - rs1
+  - rs2
+  - aq
+  - rl
+amomax_h:
+  encoding: 10100------------001-----0101111
+  extension:
+  - rv_zabha
+  mask: '0xf800707f'
+  match: '0xa000102f'
   variable_fields:
   - rd
   - rs1
@@ -353,12 +449,36 @@ amomax_w:
   - rs2
   - aq
   - rl
+amomaxu_b:
+  encoding: 11100------------000-----0101111
+  extension:
+  - rv_zabha
+  mask: '0xf800707f'
+  match: '0xe000002f'
+  variable_fields:
+  - rd
+  - rs1
+  - rs2
+  - aq
+  - rl
 amomaxu_d:
   encoding: 11100------------011-----0101111
   extension:
   - rv64_a
   mask: '0xf800707f'
   match: '0xe000302f'
+  variable_fields:
+  - rd
+  - rs1
+  - rs2
+  - aq
+  - rl
+amomaxu_h:
+  encoding: 11100------------001-----0101111
+  extension:
+  - rv_zabha
+  mask: '0xf800707f'
+  match: '0xe000102f'
   variable_fields:
   - rd
   - rs1
@@ -377,12 +497,36 @@ amomaxu_w:
   - rs2
   - aq
   - rl
+amomin_b:
+  encoding: 10000------------000-----0101111
+  extension:
+  - rv_zabha
+  mask: '0xf800707f'
+  match: '0x8000002f'
+  variable_fields:
+  - rd
+  - rs1
+  - rs2
+  - aq
+  - rl
 amomin_d:
   encoding: 10000------------011-----0101111
   extension:
   - rv64_a
   mask: '0xf800707f'
   match: '0x8000302f'
+  variable_fields:
+  - rd
+  - rs1
+  - rs2
+  - aq
+  - rl
+amomin_h:
+  encoding: 10000------------001-----0101111
+  extension:
+  - rv_zabha
+  mask: '0xf800707f'
+  match: '0x8000102f'
   variable_fields:
   - rd
   - rs1
@@ -401,12 +545,36 @@ amomin_w:
   - rs2
   - aq
   - rl
+amominu_b:
+  encoding: 11000------------000-----0101111
+  extension:
+  - rv_zabha
+  mask: '0xf800707f'
+  match: '0xc000002f'
+  variable_fields:
+  - rd
+  - rs1
+  - rs2
+  - aq
+  - rl
 amominu_d:
   encoding: 11000------------011-----0101111
   extension:
   - rv64_a
   mask: '0xf800707f'
   match: '0xc000302f'
+  variable_fields:
+  - rd
+  - rs1
+  - rs2
+  - aq
+  - rl
+amominu_h:
+  encoding: 11000------------001-----0101111
+  extension:
+  - rv_zabha
+  mask: '0xf800707f'
+  match: '0xc000102f'
   variable_fields:
   - rd
   - rs1
@@ -425,12 +593,36 @@ amominu_w:
   - rs2
   - aq
   - rl
+amoor_b:
+  encoding: 01000------------000-----0101111
+  extension:
+  - rv_zabha
+  mask: '0xf800707f'
+  match: '0x4000002f'
+  variable_fields:
+  - rd
+  - rs1
+  - rs2
+  - aq
+  - rl
 amoor_d:
   encoding: 01000------------011-----0101111
   extension:
   - rv64_a
   mask: '0xf800707f'
   match: '0x4000302f'
+  variable_fields:
+  - rd
+  - rs1
+  - rs2
+  - aq
+  - rl
+amoor_h:
+  encoding: 01000------------001-----0101111
+  extension:
+  - rv_zabha
+  mask: '0xf800707f'
+  match: '0x4000102f'
   variable_fields:
   - rd
   - rs1
@@ -449,12 +641,36 @@ amoor_w:
   - rs2
   - aq
   - rl
+amoswap_b:
+  encoding: 00001------------000-----0101111
+  extension:
+  - rv_zabha
+  mask: '0xf800707f'
+  match: '0x800002f'
+  variable_fields:
+  - rd
+  - rs1
+  - rs2
+  - aq
+  - rl
 amoswap_d:
   encoding: 00001------------011-----0101111
   extension:
   - rv64_a
   mask: '0xf800707f'
   match: '0x800302f'
+  variable_fields:
+  - rd
+  - rs1
+  - rs2
+  - aq
+  - rl
+amoswap_h:
+  encoding: 00001------------001-----0101111
+  extension:
+  - rv_zabha
+  mask: '0xf800707f'
+  match: '0x800102f'
   variable_fields:
   - rd
   - rs1
@@ -473,12 +689,36 @@ amoswap_w:
   - rs2
   - aq
   - rl
+amoxor_b:
+  encoding: 00100------------000-----0101111
+  extension:
+  - rv_zabha
+  mask: '0xf800707f'
+  match: '0x2000002f'
+  variable_fields:
+  - rd
+  - rs1
+  - rs2
+  - aq
+  - rl
 amoxor_d:
   encoding: 00100------------011-----0101111
   extension:
   - rv64_a
   mask: '0xf800707f'
   match: '0x2000302f'
+  variable_fields:
+  - rd
+  - rs1
+  - rs2
+  - aq
+  - rl
+amoxor_h:
+  encoding: 00100------------001-----0101111
+  extension:
+  - rv_zabha
+  mask: '0xf800707f'
+  match: '0x2000102f'
   variable_fields:
   - rd
   - rs1
@@ -571,6 +811,16 @@ bclri:
   - rd
   - rs1
   - shamtd
+bclri_rv32:
+  encoding: 0100100----------001-----0010011
+  extension:
+  - rv32_zbs
+  mask: '0xfe00707f'
+  match: '0x48001013'
+  variable_fields:
+  - rd
+  - rs1
+  - shamtw
 bcompress:
   encoding: 0000100----------110-----0110011
   extension:
@@ -642,6 +892,16 @@ bexti:
   - rd
   - rs1
   - shamtd
+bexti_rv32:
+  encoding: 0100100----------101-----0010011
+  extension:
+  - rv32_zbs
+  mask: '0xfe00707f'
+  match: '0x48005013'
+  variable_fields:
+  - rd
+  - rs1
+  - shamtw
 bfp:
   encoding: 0100100----------111-----0110011
   extension:
@@ -704,6 +964,16 @@ binvi:
   - rd
   - rs1
   - shamtd
+binvi_rv32:
+  encoding: 0110100----------001-----0010011
+  extension:
+  - rv32_zbs
+  mask: '0xfe00707f'
+  match: '0x68001013'
+  variable_fields:
+  - rd
+  - rs1
+  - shamtw
 blt:
   encoding: '-----------------100-----1100011'
   extension:
@@ -795,6 +1065,16 @@ bseti:
   - rd
   - rs1
   - shamtd
+bseti_rv32:
+  encoding: 0010100----------001-----0010011
+  extension:
+  - rv32_zbs
+  mask: '0xfe00707f'
+  match: '0x28001013'
+  variable_fields:
+  - rd
+  - rs1
+  - shamtw
 c_add:
   encoding: '----------------1001----------10'
   extension:
@@ -802,7 +1082,7 @@ c_add:
   mask: '0xf003'
   match: '0x9002'
   variable_fields:
-  - rd_rs1
+  - rd_rs1_n0
   - c_rs2_n0
 c_addi:
   encoding: '----------------000-----------01'
@@ -1072,7 +1352,7 @@ c_li:
   mask: '0xe003'
   match: '0x4001'
   variable_fields:
-  - rd
+  - rd_n0
   - c_imm6lo
   - c_imm6hi
 c_lq:
@@ -1093,7 +1373,7 @@ c_lqsp:
   mask: '0xe003'
   match: '0x2002'
   variable_fields:
-  - rd
+  - rd_n0
   - c_uimm10sphi
   - c_uimm10splo
 c_lui:
@@ -1127,62 +1407,70 @@ c_lwsp:
   - rd_n0
   - c_uimm8sphi
   - c_uimm8splo
-c_mop_0:
+c_mop_1:
   encoding: '----------------0110000010000001'
   extension:
   - rv_zcmop
   mask: '0xffff'
   match: '0x6081'
   variable_fields: []
-c_mop_1:
-  encoding: '----------------0110000110000001'
-  extension:
-  - rv_zcmop
-  mask: '0xffff'
-  match: '0x6181'
-  variable_fields: []
-c_mop_2:
-  encoding: '----------------0110001010000001'
-  extension:
-  - rv_zcmop
-  mask: '0xffff'
-  match: '0x6281'
-  variable_fields: []
-c_mop_3:
-  encoding: '----------------0110001110000001'
-  extension:
-  - rv_zcmop
-  mask: '0xffff'
-  match: '0x6381'
-  variable_fields: []
-c_mop_4:
-  encoding: '----------------0110010010000001'
-  extension:
-  - rv_zcmop
-  mask: '0xffff'
-  match: '0x6481'
-  variable_fields: []
-c_mop_5:
+c_mop_11:
   encoding: '----------------0110010110000001'
   extension:
   - rv_zcmop
   mask: '0xffff'
   match: '0x6581'
   variable_fields: []
-c_mop_6:
+c_mop_13:
   encoding: '----------------0110011010000001'
   extension:
   - rv_zcmop
   mask: '0xffff'
   match: '0x6681'
   variable_fields: []
-c_mop_7:
+c_mop_15:
   encoding: '----------------0110011110000001'
   extension:
   - rv_zcmop
   mask: '0xffff'
   match: '0x6781'
   variable_fields: []
+c_mop_3:
+  encoding: '----------------0110000110000001'
+  extension:
+  - rv_zcmop
+  mask: '0xffff'
+  match: '0x6181'
+  variable_fields: []
+c_mop_5:
+  encoding: '----------------0110001010000001'
+  extension:
+  - rv_zcmop
+  mask: '0xffff'
+  match: '0x6281'
+  variable_fields: []
+c_mop_7:
+  encoding: '----------------0110001110000001'
+  extension:
+  - rv_zcmop
+  mask: '0xffff'
+  match: '0x6381'
+  variable_fields: []
+c_mop_9:
+  encoding: '----------------0110010010000001'
+  extension:
+  - rv_zcmop
+  mask: '0xffff'
+  match: '0x6481'
+  variable_fields: []
+c_mop_N:
+  encoding: '----------------01100---10000001'
+  extension:
+  - rv_zcmop
+  mask: '0xf8ff'
+  match: '0x6081'
+  variable_fields:
+  - c_mop_t
 c_mul:
   encoding: '----------------100111---10---01'
   extension:
@@ -1199,7 +1487,7 @@ c_mv:
   mask: '0xf003'
   match: '0x8002'
   variable_fields:
-  - rd
+  - rd_n0
   - c_rs2_n0
 c_nop:
   encoding: '----------------000-00000-----01'
@@ -1390,6 +1678,20 @@ c_srli_rv32:
   variable_fields:
   - rd_rs1_p
   - c_nzuimm5
+c_sspopchk_x5:
+  encoding: '----------------0110001010000001'
+  extension:
+  - rv_c_zicfiss
+  mask: '0xffff'
+  match: '0x6281'
+  variable_fields: []
+c_sspush_x1:
+  encoding: '----------------0110000010000001'
+  extension:
+  - rv_c_zicfiss
+  mask: '0xffff'
+  match: '0x6081'
+  variable_fields: []
 c_sub:
   encoding: '----------------100011---00---01'
   extension:
@@ -5195,6 +5497,16 @@ lb:
   - rd
   - rs1
   - imm12
+lb_aq:
+  encoding: 001101-00000-----000-----0101111
+  extension:
+  - rv_zalasr
+  mask: '0xfdf0707f'
+  match: '0x3400002f'
+  variable_fields:
+  - rd
+  - rs1
+  - rl
 lbu:
   encoding: '-----------------100-----0000011'
   extension:
@@ -5215,6 +5527,16 @@ ld:
   - rd
   - rs1
   - imm12
+ld_aq:
+  encoding: 001101-00000-----011-----0101111
+  extension:
+  - rv_zalasr
+  mask: '0xfdf0707f'
+  match: '0x3400302f'
+  variable_fields:
+  - rd
+  - rs1
+  - rl
 ldu:
   encoding: '-----------------111-----0000011'
   extension:
@@ -5235,6 +5557,16 @@ lh:
   - rd
   - rs1
   - imm12
+lh_aq:
+  encoding: 001101-00000-----001-----0101111
+  extension:
+  - rv_zalasr
+  mask: '0xfdf0707f'
+  match: '0x3400102f'
+  variable_fields:
+  - rd
+  - rs1
+  - rl
 lhu:
   encoding: '-----------------101-----0000011'
   extension:
@@ -5296,6 +5628,16 @@ lw:
   - rd
   - rs1
   - imm12
+lw_aq:
+  encoding: 001101-00000-----010-----0101111
+  extension:
+  - rv_zalasr
+  mask: '0xfdf0707f'
+  match: '0x3400202f'
+  variable_fields:
+  - rd
+  - rs1
+  - rl
 lwu:
   encoding: '-----------------110-----0000011'
   extension:
@@ -5653,6 +5995,18 @@ mop_r_9:
   variable_fields:
   - rd
   - rs1
+mop_r_N:
+  encoding: 1-00--0111-------100-----1110011
+  extension:
+  - rv_zimop
+  mask: '0xb3c0707f'
+  match: '0x81c04073'
+  variable_fields:
+  - mop_r_t_30
+  - mop_r_t_27_26
+  - mop_r_t_21_20
+  - rd
+  - rs1
 mop_rr_0:
   encoding: 1000001----------100-----1110011
   extension:
@@ -5730,6 +6084,18 @@ mop_rr_7:
   mask: '0xfe00707f'
   match: '0xce004073'
   variable_fields:
+  - rd
+  - rs1
+  - rs2
+mop_rr_N:
+  encoding: 1-00--1----------100-----1110011
+  extension:
+  - rv_zimop
+  mask: '0xb200707f'
+  match: '0x82004073'
+  variable_fields:
+  - mop_rr_t_30
+  - mop_rr_t_27_26
   - rd
   - rs1
   - rs2
@@ -6292,6 +6658,15 @@ rev8_h:
   variable_fields:
   - rd
   - rs1
+rev8_rv32:
+  encoding: 011010011000-----101-----0010011
+  extension:
+  - rv32_zks
+  mask: '0xfff0707f'
+  match: '0x69805013'
+  variable_fields:
+  - rd
+  - rs1
 rol:
   encoding: 0110000----------001-----0110011
   extension:
@@ -6352,6 +6727,16 @@ rori:
   - rd
   - rs1
   - shamtd
+rori_rv32:
+  encoding: 0110000----------101-----0010011
+  extension:
+  - rv32_zks
+  mask: '0xfe00707f'
+  match: '0x60005013'
+  variable_fields:
+  - rd
+  - rs1
+  - shamtw
 roriw:
   encoding: 0110000----------101-----0011011
   extension:
@@ -6483,6 +6868,16 @@ sb:
   - rs1
   - rs2
   - imm12lo
+sb_rl:
+  encoding: 00111-1----------000000000101111
+  extension:
+  - rv_zalasr
+  mask: '0xfa007fff'
+  match: '0x3a00002f'
+  variable_fields:
+  - rs1
+  - rs2
+  - aq
 sbreak:
   encoding: '00000000000100000000000001110011'
   extension:
@@ -6602,6 +6997,16 @@ sd:
   - rs1
   - rs2
   - imm12lo
+sd_rl:
+  encoding: 00111-1----------011000000101111
+  extension:
+  - rv_zalasr
+  mask: '0xfa007fff'
+  match: '0x3a00302f'
+  variable_fields:
+  - rs1
+  - rs2
+  - aq
 sext_b:
   encoding: 011000000100-----001-----0010011
   extension:
@@ -6714,6 +7119,16 @@ sh3add_uw:
   - rd
   - rs1
   - rs2
+sh_rl:
+  encoding: 00111-1----------001000000101111
+  extension:
+  - rv_zalasr
+  mask: '0xfa007fff'
+  match: '0x3a00102f'
+  variable_fields:
+  - rs1
+  - rs2
+  - aq
 sha256sig0:
   encoding: 000100000010-----001-----0010011
   extension:
@@ -8095,6 +8510,66 @@ srow:
   - rd
   - rs1
   - rs2
+ssamoswap_d:
+  encoding: 01001------------011-----0101111
+  extension:
+  - rv_zicfiss
+  mask: '0xf800707f'
+  match: '0x4800302f'
+  variable_fields:
+  - rd
+  - rs1
+  - rs2
+  - aq
+  - rl
+ssamoswap_w:
+  encoding: 01001------------010-----0101111
+  extension:
+  - rv_zicfiss
+  mask: '0xf800707f'
+  match: '0x4800202f'
+  variable_fields:
+  - rd
+  - rs1
+  - rs2
+  - aq
+  - rl
+sspopchk_x1:
+  encoding: '11001101110000001100000001110011'
+  extension:
+  - rv_zicfiss
+  mask: '0xffffffff'
+  match: '0xcdc0c073'
+  variable_fields: []
+sspopchk_x5:
+  encoding: '11001101110000101100000001110011'
+  extension:
+  - rv_zicfiss
+  mask: '0xffffffff'
+  match: '0xcdc2c073'
+  variable_fields: []
+sspush_x1:
+  encoding: '11001110000100000100000001110011'
+  extension:
+  - rv_zicfiss
+  mask: '0xffffffff'
+  match: '0xce104073'
+  variable_fields: []
+sspush_x5:
+  encoding: '11001110010100000100000001110011'
+  extension:
+  - rv_zicfiss
+  mask: '0xffffffff'
+  match: '0xce504073'
+  variable_fields: []
+ssrdp:
+  encoding: 11001101110000000100-----1110011
+  extension:
+  - rv_zicfiss
+  mask: '0xfffff07f'
+  match: '0xcdc04073'
+  variable_fields:
+  - rd_n0
 stas16:
   encoding: 1111010----------010-----1110111
   extension:
@@ -8261,6 +8736,16 @@ sw:
   - rs1
   - rs2
   - imm12lo
+sw_rl:
+  encoding: 00111-1----------010000000101111
+  extension:
+  - rv_zalasr
+  mask: '0xfa007fff'
+  match: '0x3a00202f'
+  variable_fields:
+  - rs1
+  - rs2
+  - aq
 uclip16:
   encoding: 10000101---------000-----1110111
   extension:
@@ -9136,438 +9621,6 @@ vaesz_vs:
   match: '0xa603a077'
   variable_fields:
   - vs2
-  - vd
-vamoaddei16_v:
-  encoding: 00000------------101-----0101111
-  extension:
-  - rv_v
-  mask: '0xf800707f'
-  match: '0x502f'
-  variable_fields:
-  - wd
-  - vm
-  - vs2
-  - rs1
-  - vd
-vamoaddei32_v:
-  encoding: 00000------------110-----0101111
-  extension:
-  - rv_v
-  mask: '0xf800707f'
-  match: '0x602f'
-  variable_fields:
-  - wd
-  - vm
-  - vs2
-  - rs1
-  - vd
-vamoaddei64_v:
-  encoding: 00000------------111-----0101111
-  extension:
-  - rv_v
-  mask: '0xf800707f'
-  match: '0x702f'
-  variable_fields:
-  - wd
-  - vm
-  - vs2
-  - rs1
-  - vd
-vamoaddei8_v:
-  encoding: 00000------------000-----0101111
-  extension:
-  - rv_v
-  mask: '0xf800707f'
-  match: '0x2f'
-  variable_fields:
-  - wd
-  - vm
-  - vs2
-  - rs1
-  - vd
-vamoandei16_v:
-  encoding: 01100------------101-----0101111
-  extension:
-  - rv_v
-  mask: '0xf800707f'
-  match: '0x6000502f'
-  variable_fields:
-  - wd
-  - vm
-  - vs2
-  - rs1
-  - vd
-vamoandei32_v:
-  encoding: 01100------------110-----0101111
-  extension:
-  - rv_v
-  mask: '0xf800707f'
-  match: '0x6000602f'
-  variable_fields:
-  - wd
-  - vm
-  - vs2
-  - rs1
-  - vd
-vamoandei64_v:
-  encoding: 01100------------111-----0101111
-  extension:
-  - rv_v
-  mask: '0xf800707f'
-  match: '0x6000702f'
-  variable_fields:
-  - wd
-  - vm
-  - vs2
-  - rs1
-  - vd
-vamoandei8_v:
-  encoding: 01100------------000-----0101111
-  extension:
-  - rv_v
-  mask: '0xf800707f'
-  match: '0x6000002f'
-  variable_fields:
-  - wd
-  - vm
-  - vs2
-  - rs1
-  - vd
-vamomaxei16_v:
-  encoding: 10100------------101-----0101111
-  extension:
-  - rv_v
-  mask: '0xf800707f'
-  match: '0xa000502f'
-  variable_fields:
-  - wd
-  - vm
-  - vs2
-  - rs1
-  - vd
-vamomaxei32_v:
-  encoding: 10100------------110-----0101111
-  extension:
-  - rv_v
-  mask: '0xf800707f'
-  match: '0xa000602f'
-  variable_fields:
-  - wd
-  - vm
-  - vs2
-  - rs1
-  - vd
-vamomaxei64_v:
-  encoding: 10100------------111-----0101111
-  extension:
-  - rv_v
-  mask: '0xf800707f'
-  match: '0xa000702f'
-  variable_fields:
-  - wd
-  - vm
-  - vs2
-  - rs1
-  - vd
-vamomaxei8_v:
-  encoding: 10100------------000-----0101111
-  extension:
-  - rv_v
-  mask: '0xf800707f'
-  match: '0xa000002f'
-  variable_fields:
-  - wd
-  - vm
-  - vs2
-  - rs1
-  - vd
-vamomaxuei16_v:
-  encoding: 11100------------101-----0101111
-  extension:
-  - rv_v
-  mask: '0xf800707f'
-  match: '0xe000502f'
-  variable_fields:
-  - wd
-  - vm
-  - vs2
-  - rs1
-  - vd
-vamomaxuei32_v:
-  encoding: 11100------------110-----0101111
-  extension:
-  - rv_v
-  mask: '0xf800707f'
-  match: '0xe000602f'
-  variable_fields:
-  - wd
-  - vm
-  - vs2
-  - rs1
-  - vd
-vamomaxuei64_v:
-  encoding: 11100------------111-----0101111
-  extension:
-  - rv_v
-  mask: '0xf800707f'
-  match: '0xe000702f'
-  variable_fields:
-  - wd
-  - vm
-  - vs2
-  - rs1
-  - vd
-vamomaxuei8_v:
-  encoding: 11100------------000-----0101111
-  extension:
-  - rv_v
-  mask: '0xf800707f'
-  match: '0xe000002f'
-  variable_fields:
-  - wd
-  - vm
-  - vs2
-  - rs1
-  - vd
-vamominei16_v:
-  encoding: 10000------------101-----0101111
-  extension:
-  - rv_v
-  mask: '0xf800707f'
-  match: '0x8000502f'
-  variable_fields:
-  - wd
-  - vm
-  - vs2
-  - rs1
-  - vd
-vamominei32_v:
-  encoding: 10000------------110-----0101111
-  extension:
-  - rv_v
-  mask: '0xf800707f'
-  match: '0x8000602f'
-  variable_fields:
-  - wd
-  - vm
-  - vs2
-  - rs1
-  - vd
-vamominei64_v:
-  encoding: 10000------------111-----0101111
-  extension:
-  - rv_v
-  mask: '0xf800707f'
-  match: '0x8000702f'
-  variable_fields:
-  - wd
-  - vm
-  - vs2
-  - rs1
-  - vd
-vamominei8_v:
-  encoding: 10000------------000-----0101111
-  extension:
-  - rv_v
-  mask: '0xf800707f'
-  match: '0x8000002f'
-  variable_fields:
-  - wd
-  - vm
-  - vs2
-  - rs1
-  - vd
-vamominuei16_v:
-  encoding: 11000------------101-----0101111
-  extension:
-  - rv_v
-  mask: '0xf800707f'
-  match: '0xc000502f'
-  variable_fields:
-  - wd
-  - vm
-  - vs2
-  - rs1
-  - vd
-vamominuei32_v:
-  encoding: 11000------------110-----0101111
-  extension:
-  - rv_v
-  mask: '0xf800707f'
-  match: '0xc000602f'
-  variable_fields:
-  - wd
-  - vm
-  - vs2
-  - rs1
-  - vd
-vamominuei64_v:
-  encoding: 11000------------111-----0101111
-  extension:
-  - rv_v
-  mask: '0xf800707f'
-  match: '0xc000702f'
-  variable_fields:
-  - wd
-  - vm
-  - vs2
-  - rs1
-  - vd
-vamominuei8_v:
-  encoding: 11000------------000-----0101111
-  extension:
-  - rv_v
-  mask: '0xf800707f'
-  match: '0xc000002f'
-  variable_fields:
-  - wd
-  - vm
-  - vs2
-  - rs1
-  - vd
-vamoorei16_v:
-  encoding: 01000------------101-----0101111
-  extension:
-  - rv_v
-  mask: '0xf800707f'
-  match: '0x4000502f'
-  variable_fields:
-  - wd
-  - vm
-  - vs2
-  - rs1
-  - vd
-vamoorei32_v:
-  encoding: 01000------------110-----0101111
-  extension:
-  - rv_v
-  mask: '0xf800707f'
-  match: '0x4000602f'
-  variable_fields:
-  - wd
-  - vm
-  - vs2
-  - rs1
-  - vd
-vamoorei64_v:
-  encoding: 01000------------111-----0101111
-  extension:
-  - rv_v
-  mask: '0xf800707f'
-  match: '0x4000702f'
-  variable_fields:
-  - wd
-  - vm
-  - vs2
-  - rs1
-  - vd
-vamoorei8_v:
-  encoding: 01000------------000-----0101111
-  extension:
-  - rv_v
-  mask: '0xf800707f'
-  match: '0x4000002f'
-  variable_fields:
-  - wd
-  - vm
-  - vs2
-  - rs1
-  - vd
-vamoswapei16_v:
-  encoding: 00001------------101-----0101111
-  extension:
-  - rv_v
-  mask: '0xf800707f'
-  match: '0x800502f'
-  variable_fields:
-  - wd
-  - vm
-  - vs2
-  - rs1
-  - vd
-vamoswapei32_v:
-  encoding: 00001------------110-----0101111
-  extension:
-  - rv_v
-  mask: '0xf800707f'
-  match: '0x800602f'
-  variable_fields:
-  - wd
-  - vm
-  - vs2
-  - rs1
-  - vd
-vamoswapei64_v:
-  encoding: 00001------------111-----0101111
-  extension:
-  - rv_v
-  mask: '0xf800707f'
-  match: '0x800702f'
-  variable_fields:
-  - wd
-  - vm
-  - vs2
-  - rs1
-  - vd
-vamoswapei8_v:
-  encoding: 00001------------000-----0101111
-  extension:
-  - rv_v
-  mask: '0xf800707f'
-  match: '0x800002f'
-  variable_fields:
-  - wd
-  - vm
-  - vs2
-  - rs1
-  - vd
-vamoxorei16_v:
-  encoding: 00100------------101-----0101111
-  extension:
-  - rv_v
-  mask: '0xf800707f'
-  match: '0x2000502f'
-  variable_fields:
-  - wd
-  - vm
-  - vs2
-  - rs1
-  - vd
-vamoxorei32_v:
-  encoding: 00100------------110-----0101111
-  extension:
-  - rv_v
-  mask: '0xf800707f'
-  match: '0x2000602f'
-  variable_fields:
-  - wd
-  - vm
-  - vs2
-  - rs1
-  - vd
-vamoxorei64_v:
-  encoding: 00100------------111-----0101111
-  extension:
-  - rv_v
-  mask: '0xf800707f'
-  match: '0x2000702f'
-  variable_fields:
-  - wd
-  - vm
-  - vs2
-  - rs1
-  - vd
-vamoxorei8_v:
-  encoding: 00100------------000-----0101111
-  extension:
-  - rv_v
-  mask: '0xf800707f'
-  match: '0x2000002f'
-  variable_fields:
-  - wd
-  - vm
-  - vs2
-  - rs1
   - vd
 vand_vi:
   encoding: 001001-----------011-----1010111
@@ -14516,6 +14569,15 @@ zext_h:
   - rv64_zbb
   mask: '0xfff0707f'
   match: '0x800403b'
+  variable_fields:
+  - rd
+  - rs1
+zext_h_rv32:
+  encoding: 000010000000-----100-----0110011
+  extension:
+  - rv32_zbb
+  mask: '0xfff0707f'
+  match: '0x8004033'
   variable_fields:
   - rd
   - rs1
